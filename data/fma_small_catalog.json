@@ -1,0 +1,3383 @@
+{
+ "version": 1,
+ "dataset": "FMA Small",
+ "source": "Free Music Archive",
+ "selection": "FMA Small (tracks.csv subset=small): por genre_top, las 10 primeras pistas por track_id que existen y se decodifican",
+ "genres": [
+  "Electronic",
+  "Experimental",
+  "Folk",
+  "Hip-Hop",
+  "Instrumental",
+  "International",
+  "Pop",
+  "Rock"
+ ],
+ "per_genre": 10,
+ "segment_seconds": 5.0,
+ "audio_prefix": "fma",
+ "song_count": 80,
+ "segment_count": 480,
+ "songs": [
+  {
+   "song_id": 2,
+   "title": "Food",
+   "artist": "AWOL",
+   "genre": "Hip-Hop",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000002.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 181,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 5,
+   "title": "This World",
+   "artist": "AWOL",
+   "genre": "Hip-Hop",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000005.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 187,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 10,
+   "title": "Freeway",
+   "artist": "Kurt Vile",
+   "genre": "Pop",
+   "license": "Attribution-NonCommercial-NoDerivatives (aka Music Sharing) 3.0 International",
+   "audio_path": "fma/000/000010.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 361,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 140,
+   "title": "Queen Of The Wires",
+   "artist": "Alec K. Redfearn & the Eyesores",
+   "genre": "Folk",
+   "license": "Attribution-Noncommercial-No Derivative Works 3.0 United States",
+   "audio_path": "fma/000/000140.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 121,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 141,
+   "title": "Ohio",
+   "artist": "Alec K. Redfearn & the Eyesores",
+   "genre": "Folk",
+   "license": "Attribution-Noncommercial-No Derivative Works 3.0 United States",
+   "audio_path": "fma/000/000141.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 127,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 148,
+   "title": "Blackout 2",
+   "artist": "Contradiction",
+   "genre": "Experimental",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/000/000148.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 61,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 182,
+   "title": "Jules Lost His Jewels",
+   "artist": "Ariel Pink's Haunted Graffiti",
+   "genre": "Rock",
+   "license": "Attribution-Noncommercial-No Derivative Works 3.0 United States",
+   "audio_path": "fma/000/000182.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 421,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 190,
+   "title": "Castle Of Stars",
+   "artist": "Ed Askew",
+   "genre": "Folk",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000190.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 133,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 193,
+   "title": "Here With You",
+   "artist": "Ed Askew",
+   "genre": "Folk",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000193.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 139,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 194,
+   "title": "All I want to Do",
+   "artist": "Ed Askew",
+   "genre": "Folk",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000194.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 145,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 197,
+   "title": "Piano 2",
+   "artist": "Ed Askew",
+   "genre": "Folk",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000197.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 151,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 200,
+   "title": "Baby Come Home",
+   "artist": "Ed Askew",
+   "genre": "Folk",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000200.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 157,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 203,
+   "title": "Song For R",
+   "artist": "Ed Askew",
+   "genre": "Folk",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000203.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 163,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 204,
+   "title": "My Dream",
+   "artist": "Ed Askew",
+   "genre": "Folk",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000204.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 169,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 207,
+   "title": "Piano 3",
+   "artist": "Ed Askew",
+   "genre": "Folk",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000207.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 175,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 213,
+   "title": "Boute",
+   "artist": "Au",
+   "genre": "Pop",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000213.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 367,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 255,
+   "title": "We Want to be Old",
+   "artist": "Bird Names",
+   "genre": "Rock",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/000/000255.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 427,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 256,
+   "title": "Toggle",
+   "artist": "Black Elk",
+   "genre": "Rock",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000256.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 433,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 368,
+   "title": "Vampires",
+   "artist": "Blah Blah Blah",
+   "genre": "Rock",
+   "license": "Attribution-Noncommercial-No Derivative Works 2.0 UK: England",
+   "audio_path": "fma/000/000368.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 439,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 424,
+   "title": "The Ambient Honky",
+   "artist": "Brian Joseph Davis",
+   "genre": "Experimental",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000424.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 67,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 459,
+   "title": "Machines and Muscles",
+   "artist": "CAVE",
+   "genre": "Rock",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000459.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 445,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 574,
+   "title": "Caliente Queen",
+   "artist": "Clockcleaner",
+   "genre": "Rock",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000574.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 451,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 615,
+   "title": "Immaterial, side A",
+   "artist": "EKG",
+   "genre": "Experimental",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000615.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 73,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 666,
+   "title": "Heat",
+   "artist": "Explode Into Colors",
+   "genre": "International",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000666.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 301,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 667,
+   "title": "Sharpen The Knife",
+   "artist": "Explode Into Colors",
+   "genre": "International",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000667.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 307,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 676,
+   "title": "The Tension",
+   "artist": "Fanatic",
+   "genre": "Hip-Hop",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000676.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 193,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 690,
+   "title": "Cataclysm",
+   "artist": "Flying Luttenbachers",
+   "genre": "Rock",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000690.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 457,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 694,
+   "title": "Planet Say (featuring Faust)",
+   "artist": "Food For Animals",
+   "genre": "Hip-Hop",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000694.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 199,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 695,
+   "title": "Elephants",
+   "artist": "Food For Animals",
+   "genre": "Hip-Hop",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000695.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 205,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 704,
+   "title": "Mano De Dios",
+   "artist": "Fósforo",
+   "genre": "International",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000704.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 313,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 705,
+   "title": "Tio Cocodrilo",
+   "artist": "Fósforo",
+   "genre": "International",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000705.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 319,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 706,
+   "title": "Esto Es Califas",
+   "artist": "Fósforo",
+   "genre": "International",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000706.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 325,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 707,
+   "title": "Cochabamba",
+   "artist": "Fósforo",
+   "genre": "International",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000707.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 331,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 708,
+   "title": "Desconocido",
+   "artist": "Fósforo",
+   "genre": "International",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000708.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 337,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 709,
+   "title": "Cumbia De Obama",
+   "artist": "Fósforo",
+   "genre": "International",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000709.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 343,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 777,
+   "title": "Relaxing",
+   "artist": "Glove Compartment",
+   "genre": "Rock",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000777.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 463,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 821,
+   "title": "Sir",
+   "artist": "Hecuba",
+   "genre": "Pop",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000821.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 373,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 822,
+   "title": "Tom & Jerry",
+   "artist": "Hecuba",
+   "genre": "Pop",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000822.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 379,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 825,
+   "title": "Death March",
+   "artist": "Here Comes A Big Black Cloud!!",
+   "genre": "Rock",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000825.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 469,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 853,
+   "title": "Welsinsni Melodyi",
+   "artist": "Hutzl Ukranian Ensemble",
+   "genre": "International",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/000/000853.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 349,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 897,
+   "title": "02",
+   "artist": "Infinite Body",
+   "genre": "Experimental",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000897.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 79,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 993,
+   "title": "Or So I've Been Told",
+   "artist": "Jad Fair and Jason Willett",
+   "genre": "Rock",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/000/000993.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 475,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 995,
+   "title": "No Good Deed Goes Unpunished",
+   "artist": "Kevin Shields",
+   "genre": "Experimental",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/000/000995.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 85,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 997,
+   "title": "Nothing's Ever Ending",
+   "artist": "Kevin Shields",
+   "genre": "Experimental",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/000/000997.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 91,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 998,
+   "title": "Apparently",
+   "artist": "Kevin Shields",
+   "genre": "Experimental",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/000/000998.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 97,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 1066,
+   "title": "Helicopter de Cristal",
+   "artist": "Lucky Dragons",
+   "genre": "Experimental",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/001/001066.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 103,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 1069,
+   "title": "Un Lagrima en la Discoteca",
+   "artist": "Lucky Dragons",
+   "genre": "Experimental",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/001/001069.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 109,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 1073,
+   "title": "Onda Tocadisco",
+   "artist": "Lucky Dragons",
+   "genre": "Experimental",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/001/001073.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 115,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 1082,
+   "title": "Nam Nhi-tu",
+   "artist": "M. Nguyen Van Minh-Con",
+   "genre": "International",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/001/001082.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 355,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 1482,
+   "title": "Reindeer Dance",
+   "artist": "Rainbro",
+   "genre": "Electronic",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/001/001482.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 1,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 1642,
+   "title": "Hrz",
+   "artist": "So Cow",
+   "genre": "Pop",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/001/001642.mp3",
+   "duration_seconds": 29.988979591836735,
+   "first_segment_id": 385,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.988979591836735
+    ]
+   ]
+  },
+  {
+   "song_id": 1644,
+   "title": "Outskirts",
+   "artist": "So Cow",
+   "genre": "Pop",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/001/001644.mp3",
+   "duration_seconds": 29.988979591836735,
+   "first_segment_id": 391,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.988979591836735
+    ]
+   ]
+  },
+  {
+   "song_id": 1649,
+   "title": "Inis Meain",
+   "artist": "So Cow",
+   "genre": "Pop",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/001/001649.mp3",
+   "duration_seconds": 29.988979591836735,
+   "first_segment_id": 397,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.988979591836735
+    ]
+   ]
+  },
+  {
+   "song_id": 1661,
+   "title": "Only Fools and Horses Theme",
+   "artist": "So Cow",
+   "genre": "Pop",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/001/001661.mp3",
+   "duration_seconds": 29.988979591836735,
+   "first_segment_id": 403,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.988979591836735
+    ]
+   ]
+  },
+  {
+   "song_id": 1663,
+   "title": "So High",
+   "artist": "Softboiled Eggies",
+   "genre": "Pop",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/001/001663.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 409,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 1666,
+   "title": "She Fell Through the Trees",
+   "artist": "Softboiled Eggies",
+   "genre": "Pop",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/001/001666.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 415,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 3573,
+   "title": "Piggled",
+   "artist": "Dan Deacon",
+   "genre": "Electronic",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/003/003573.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 7,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 4519,
+   "title": "Golden",
+   "artist": "High Places",
+   "genre": "Electronic",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/004/004519.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 13,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 4520,
+   "title": "From Stardust to Sentience",
+   "artist": "High Places",
+   "genre": "Electronic",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/004/004520.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 19,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 4521,
+   "title": "Namer",
+   "artist": "High Places",
+   "genre": "Electronic",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/004/004521.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 25,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 4522,
+   "title": "Oceanus",
+   "artist": "High Places",
+   "genre": "Electronic",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/004/004522.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 31,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 4682,
+   "title": "Asylum (Permanent Underclass)",
+   "artist": "Dälek",
+   "genre": "Hip-Hop",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/004/004682.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 211,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 4684,
+   "title": "Eyes to Form Shadows",
+   "artist": "Dälek",
+   "genre": "Hip-Hop",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/004/004684.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 217,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 4685,
+   "title": "Ever Somber",
+   "artist": "Dälek",
+   "genre": "Hip-Hop",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/004/004685.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 223,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 4688,
+   "title": "Culture for Dollars",
+   "artist": "Dälek",
+   "genre": "Hip-Hop",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/004/004688.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 229,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 5264,
+   "title": "Classical Homicide",
+   "artist": "Dälek",
+   "genre": "Hip-Hop",
+   "license": "Attribution-NonCommercial-ShareAlike 3.0 International",
+   "audio_path": "fma/005/005264.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 235,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 7011,
+   "title": "in sleepy electricity",
+   "artist": "junior85",
+   "genre": "Electronic",
+   "license": "Attribution-NonCommercial-ShareAlike",
+   "audio_path": "fma/007/007011.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 37,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 10250,
+   "title": "Tree Symphony",
+   "artist": "JayDee",
+   "genre": "Instrumental",
+   "license": "Attribution-Noncommercial-No Derivative Works 3.0 United States",
+   "audio_path": "fma/010/010250.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 241,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 11206,
+   "title": "Elles",
+   "artist": "Music Komite",
+   "genre": "Electronic",
+   "license": "Creative Commons Attribution",
+   "audio_path": "fma/011/011206.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 43,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 11262,
+   "title": "Wataridori 2",
+   "artist": "Cornelius",
+   "genre": "Electronic",
+   "license": "Sampling Plus",
+   "audio_path": "fma/011/011262.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 49,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 11638,
+   "title": "Romantic Neck Tattoo",
+   "artist": "Embarker",
+   "genre": "Instrumental",
+   "license": "Attribution-Noncommercial-Share Alike 3.0 United States",
+   "audio_path": "fma/011/011638.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 247,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 11942,
+   "title": "Rage Against Death",
+   "artist": "Stouffi The Stouves",
+   "genre": "Electronic",
+   "license": "Attribution-Noncommercial-NoDerivatives 2.0 France",
+   "audio_path": "fma/011/011942.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 55,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 14568,
+   "title": "Monkey Dance",
+   "artist": "Ergo Phizmiz",
+   "genre": "Instrumental",
+   "license": "Attribution-Noncommercial-Share Alike 2.0 UK: England",
+   "audio_path": "fma/014/014568.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 253,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 14569,
+   "title": "Gretchen's Tango",
+   "artist": "Ergo Phizmiz",
+   "genre": "Instrumental",
+   "license": "Attribution-Noncommercial-Share Alike 2.0 UK: England",
+   "audio_path": "fma/014/014569.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 259,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 14570,
+   "title": "So Wunsch Ich Dir",
+   "artist": "Ergo Phizmiz",
+   "genre": "Instrumental",
+   "license": "Attribution-Noncommercial-Share Alike 2.0 UK: England",
+   "audio_path": "fma/014/014570.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 265,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 14571,
+   "title": "Through the Doors of the Circus",
+   "artist": "Ergo Phizmiz",
+   "genre": "Instrumental",
+   "license": "Attribution-Noncommercial-Share Alike 2.0 UK: England",
+   "audio_path": "fma/014/014571.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 271,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 14572,
+   "title": "David Niven Death Dance",
+   "artist": "Ergo Phizmiz",
+   "genre": "Instrumental",
+   "license": "Attribution-Noncommercial-Share Alike 2.0 UK: England",
+   "audio_path": "fma/014/014572.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 277,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  },
+  {
+   "song_id": 14576,
+   "title": "Funeral March For A Marionette",
+   "artist": "Ergo Phizmiz",
+   "genre": "Instrumental",
+   "license": "Attribution-Noncommercial-Share Alike 2.0 UK: England",
+   "audio_path": "fma/014/014576.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 283,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 14577,
+   "title": "Garden Theme",
+   "artist": "Ergo Phizmiz",
+   "genre": "Instrumental",
+   "license": "Attribution-Noncommercial-Share Alike 2.0 UK: England",
+   "audio_path": "fma/014/014577.mp3",
+   "duration_seconds": 30.002721088435376,
+   "first_segment_id": 289,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     30.0
+    ]
+   ]
+  },
+  {
+   "song_id": 14578,
+   "title": "Vespers",
+   "artist": "Ergo Phizmiz",
+   "genre": "Instrumental",
+   "license": "Attribution-Noncommercial-Share Alike 2.0 UK: England",
+   "audio_path": "fma/014/014578.mp3",
+   "duration_seconds": 29.976598639455784,
+   "first_segment_id": 295,
+   "segments": [
+    [
+     0,
+     0.0,
+     5.0
+    ],
+    [
+     1,
+     5.0,
+     10.0
+    ],
+    [
+     2,
+     10.0,
+     15.0
+    ],
+    [
+     3,
+     15.0,
+     20.0
+    ],
+    [
+     4,
+     20.0,
+     25.0
+    ],
+    [
+     5,
+     25.0,
+     29.976598639455784
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+[project]
+name = "soupdb-copyright"
+version = "0.1.0"
+description = "Backend de similitud de audio (copyright/remixes) que usa SoupDB por TCP."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [{ name = "BD2-Project" }]
+# Sin dependencia de SoupDB: la base se usa solo por el protocolo TCP v2.
+dependencies = [
+  "fastapi>=0.162.5",
+  "python-multipart>=0.0.33",
+  "uvicorn>=0.54.0",
+  # Solo para segmentar el candidato (duración y número de bloques de 5 s), con la
+  # misma decodificación que el perfil de SoupDB. El MFCC/HNSW lo hace SoupDB.
+  "librosa==1.0.0",
+]
+
+[project.scripts]
+copyright-api = "copyright_app.runtime:main"
+copyright-bootstrap = "copyright_app.bootstrap:main"
+
+[dependency-groups]
+dev = [
+  "httpx>=0.28.1",
+  "pytest>=9.1.1",
+  "ruff>=0.16.6",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/copyright_app"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["copyright_app"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = [
+  "integration: arranca un servidor SoupDB real (subprocess) y habla TCP con él",
+  "e2e: servidor SoupDB real + plugin vectorial + HNSW + API",
+]
