@@ -126,6 +126,8 @@ resolviéndolo bajo `/audio` sin salir de la raíz. La API nunca expone rutas.
 
 ## Demo local con Docker
 
+Consulta el [informe de integración](docs/informe-integracion.md) para ver la cobertura REST, la compatibilidad con rsoup y SoupChef, y las pruebas pendientes.
+
 1. Coloca `SoupDB`, `SoupDB-Copyright` y `CevichitoTrujillano` en el mismo directorio y abre una terminal en `SoupDB-Copyright`. Usa Docker Desktop con contenedores Linux o Docker Engine con el plugin Buildx y una versión de Compose que admita `additional_contexts` y `docker compose wait`.
 2. Copia `.env.example` a `.env`. Ajusta `FMA_AUDIO_ROOT` a la ruta absoluta de FMA Small extraído, donde están las carpetas `000/`, `001/`, etc. Ajusta `SOUPDB_SOURCE` y `CEVICHITO_SOURCE` si los repositorios están en otras rutas.
 3. Valida la configuración, construye las imágenes y prepara el catálogo. En PowerShell, usa `Copy-Item .env.example .env` para crear el archivo del paso anterior.
