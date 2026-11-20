@@ -124,21 +124,43 @@ El backend solo escribe bajo `queries/` con un `uuid4` propio; el audio original
 se sirve leyendo antes `audio_path` por TCP a partir de un `song_id` y
 resolviéndolo bajo `/audio` sin salir de la raíz. La API nunca expone rutas.
 
-## Despliegue con Docker
+## Demo local con Docker
 
-```bash
-cp .env.example .env            # FMA_AUDIO_ROOT=D:/datasets/fma/fma_small, SOUPDB_SOURCE=../SoupBD
-docker compose build
-docker compose --profile bootstrap run --rm bootstrap-catalog   # una vez (ver abajo)
-docker compose up -d soupdb copyright-api
-curl http://127.0.0.1:8000/api/v1/health
-curl -F "file=@D:/datasets/fma/fma_small/001/001482.mp3" http://127.0.0.1:8000/api/v1/analyze
-```
+1. Coloca `SoupDB`, `SoupDB-Copyright` y `CevichitoTrujillano` en el mismo directorio y abre una terminal en `SoupDB-Copyright`. Inicia Docker Desktop con contenedores Linux o usa Docker Engine con Compose v2.17 o posterior.
+2. Copia `.env.example` a `.env`. Ajusta `FMA_AUDIO_ROOT` a la ruta absoluta de FMA Small extraído, donde están las carpetas `000/`, `001/`, etc. Ajusta `SOUPDB_SOURCE` y `CEVICHITO_SOURCE` si los repositorios están en otras rutas.
+3. Valida la configuración, construye las imágenes y prepara el catálogo. En PowerShell, usa `Copy-Item .env.example .env` para crear el archivo del paso anterior.
+
+   ```sh
+   docker compose --profile bootstrap --profile demo config --quiet
+   docker compose --profile demo build
+   docker compose --profile bootstrap up -d bootstrap-catalog
+   docker compose --profile bootstrap wait bootstrap-catalog
+   docker compose --profile bootstrap logs bootstrap-manifest codebook bootstrap-catalog
+   ```
+
+   Espera a que `bootstrap-catalog` termine con código 0. Debe validar las 80 canciones, los 480 segmentos y el índice HNSW. Si falla, revisa los logs de los tres servicios de bootstrap antes de iniciar el frontend.
+
+4. Levanta la API y el frontend, y verifica la salud y el catálogo.
+
+   ```sh
+   docker compose --profile demo up -d --wait cevichito
+   docker compose ps
+   curl -f http://127.0.0.1:5173/api/v1/health
+   curl -f http://127.0.0.1:5173/api/v1/catalog
+   ```
+
+   En Windows usa `curl.exe` si PowerShell asigna `curl` a otro comando. El navegador accede a la API a través del mismo origen del frontend.
+
+5. Abre `http://127.0.0.1:5173`, explora el catálogo y escucha una referencia. Sube una pista FMA del catálogo en **Nuevo análisis**, revisa la evidencia en **Resultados** y confirma que el análisis reaparece en **Historial**. Prueba la descarga de un reporte desde ese resultado.
+6. Detén la demo con `docker compose --profile demo --profile bootstrap down`. Los volúmenes conservan el catálogo y el historial para el siguiente arranque.
+
+Para trabajar con Vite desde el host, levanta solo `soupdb` y `copyright-api` después del bootstrap. Ejecuta `npm ci` y `npm run dev` en CevichitoTrujillano, abre `http://localhost:5173` y configura `COPYRIGHT_CORS_ORIGINS` para ese origen. El frontend REST del host usa `http://127.0.0.1:8000` por defecto.
 
 | Servicio | Imagen | Volúmenes | Puerto |
 |---|---|---|---|
 | `soupdb` | gestor + `soupdb-vector` (`docker/soupdb/Dockerfile`, contexto `SOUPDB_SOURCE`) | `soupdb-data:/data`, FMA → `/audio/fma:ro`, `audio-queries:/audio/queries` | 55432 (host solo `127.0.0.1`) |
 | `copyright-api` | `Dockerfile` (sin código de SoupDB) | FMA → `/audio/fma:ro`, `audio-queries:/audio/queries` | 8000 |
+| `cevichito` | frontend web REST servido por Nginx, perfil `demo` | | 5173 |
 | `bootstrap-manifest`, `codebook`, `bootstrap-catalog` | perfil `bootstrap` | | |
 
 Healthchecks: `soupdb` envía un `PING` v2 y espera `PONG`; `copyright-api` llama a
@@ -206,7 +228,7 @@ uv run pytest tests/integration tests/e2e  # servidor SoupDB real como proceso e
 ```
 
 Los tests de integración y E2E arrancan `python -m engine` con el intérprete de un
-entorno SoupDB (`SOUPDB_PYTHON`; por defecto `../SoupBD/.venv`) y hablan con él
+entorno SoupDB (`SOUPDB_PYTHON`; busca `../SoupDB/.venv`) y hablan con él
 solo por TCP; no importan el gestor. El E2E FMA necesita `FMA_AUDIO_ROOT`. Si falta
 alguno, esos tests se marcan como *skip* con el motivo.
 
