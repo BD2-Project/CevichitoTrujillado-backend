@@ -222,6 +222,7 @@ class StubClient:
         self.connected = False
         self.in_transaction = False
         self.closed = 0
+        self.expired = False
 
     def connect(self):
         self.connected = True
@@ -233,6 +234,10 @@ class StubClient:
 
     def rollback(self):
         self.in_transaction = False
+
+    def ping(self):
+        if self.expired:
+            raise SoupDBConnectionError("conexión inactiva cerrada")
 
 
 def test_pool_reuses_and_discards_connections():
@@ -259,3 +264,16 @@ def test_pool_reuses_and_discards_connections():
         pass
     with pytest.raises(ValueError):
         SoupDBPool(factory, 0)
+
+
+def test_pool_replaces_idle_connection_closed_by_server():
+    pool = SoupDBPool(StubClient, 1)
+    try:
+        with pool.connection() as original:
+            original.expired = True
+        with pool.connection() as replacement:
+            assert replacement is not original
+            assert replacement.connected
+            assert original.closed == 1
+    finally:
+        pool.close()

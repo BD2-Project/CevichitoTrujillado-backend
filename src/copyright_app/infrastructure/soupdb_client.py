@@ -429,6 +429,12 @@ class SoupDBPool:
                 client = self._idle.get_nowait()
             except queue.Empty:
                 client = self._factory()
+            else:
+                try:
+                    client.ping()
+                except (SoupDBConnectionError, SoupDBProtocolError):
+                    client.close()
+                    client = self._factory()
             try:
                 client.connect()
                 yield client
