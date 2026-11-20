@@ -157,7 +157,12 @@ def test_full_flow_then_restart(deployment, monkeypatch, capsys):
         assert (top["query_start"], top["query_end"]) == (0.0, 20.0)
         assert (top["source_start"], top["source_end"]) == (0.0, 20.0)
         assert top["score"] == pytest.approx(1.0, abs=1e-6)
-        assert not any((deployment["audio"] / "queries").iterdir())  # candidato borrado
+        assert not (deployment["audio"] / "queries" / body["analysis_id"]).exists()
+        audio_url = body["audio_url"]
+        assert client.get(audio_url).content == query.read_bytes()
+        partial = client.get(audio_url, headers={"Range": "bytes=0-31"})
+        assert partial.status_code == 206
+        assert partial.content == query.read_bytes()[:32]
 
         listed = client.get("/api/v1/analyses").json()
         assert [a["analysis_id"] for a in listed] == [body["analysis_id"]]
@@ -166,6 +171,7 @@ def test_full_flow_then_restart(deployment, monkeypatch, capsys):
         exported = client.get(f"/api/v1/analyses/{body['analysis_id']}/export?format=csv")
         rows = list(csv.DictReader(io.StringIO(exported.text)))
         assert rows[0]["title"] == "Alpha" and len(rows) == len(body["matches"])
+        assert detail.pop("audio_url") == audio_url
         assert client.get(f"/api/v1/analyses/{body['analysis_id']}/export").json() == detail
 
         catalog = client.get("/api/v1/catalog").json()
@@ -185,6 +191,7 @@ def test_full_flow_then_restart(deployment, monkeypatch, capsys):
     restarted.port = old.port
     deployment["server"] = restarted.start()
     with TestClient(build_app(settings_for(deployment))) as client:
+        assert client.get(audio_url).content == query.read_bytes()
         assert [a["analysis_id"] for a in client.get("/api/v1/analyses").json()] == [
             body["analysis_id"]
         ]

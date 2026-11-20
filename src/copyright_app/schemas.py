@@ -86,9 +86,13 @@ class AnalysisResult(BaseModel):
 
 
 class StoredAnalysis(AnalysisResult):
-    """Análisis persistido en SoupDB: resultado y metadata, nunca el audio subido."""
+    """Resultado del análisis persistido en SoupDB."""
 
     created_at: str = Field(description="Instante del análisis, ISO 8601 en UTC.")
+
+
+class StoredAnalysisWithAudio(StoredAnalysis):
+    audio_url: str = Field(description="Ruta de reproducción del audio analizado.")
 
 
 class AnalysisSummary(BaseModel):

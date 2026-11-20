@@ -40,8 +40,8 @@ class SharedAudioStore:
             raise ValueError(f"extensión no admitida: {extension!r}")
         relative = f"{QUERIES_DIR}/{analysis_id}/candidate{extension}"
         target = self._root / relative
+        target.parent.mkdir(parents=True, exist_ok=False)
         try:
-            target.parent.mkdir(parents=True, exist_ok=False)
             written = 0
             with target.open("xb") as out:
                 while chunk := upload.read(_CHUNK_BYTES):
@@ -62,6 +62,32 @@ class SharedAudioStore:
                 pass
             except OSError as exc:
                 logger.warning("no se pudo borrar el staging %s: %s", target.parent.name, exc)
+
+    @contextmanager
+    def archive(self, analysis_id: str, candidate: Path) -> Iterator[None]:
+        """Conserva el candidato si se confirma el registro del análisis."""
+        if not _ANALYSIS_ID.fullmatch(analysis_id):
+            raise ValueError("analysis_id inválido")
+        directory = self._root / QUERIES_DIR / "saved" / analysis_id
+        directory.mkdir(parents=True, exist_ok=False)
+        target = directory / candidate.name
+        try:
+            candidate.rename(target)
+            yield
+        except BaseException:
+            target.unlink(missing_ok=True)
+            directory.rmdir()
+            raise
+
+    def archived_file(self, analysis_id: str) -> Path | None:
+        if not _ANALYSIS_ID.fullmatch(analysis_id):
+            return None
+        directory = (self._root / QUERIES_DIR / "saved").resolve()
+        for extension in (*AUDIO_EXTENSIONS, ""):
+            path = (directory / analysis_id / f"candidate{extension}").resolve()
+            if path.is_relative_to(directory) and path.is_file():
+                return path
+        return None
 
     def reference_file(self, audio_path: str) -> Path | None:
         """Devuelve un original accesible dentro del volumen, fuera de queries/."""

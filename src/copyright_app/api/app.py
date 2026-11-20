@@ -8,7 +8,7 @@ from fastapi import Path as PathParam
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse, Response
 
-from copyright_app.config import API_PREFIX, SERVICE_NAME
+from copyright_app.config import API_PREFIX, AUDIO_MEDIA_TYPES, SERVICE_NAME
 from copyright_app.domain.models import SongEntry
 from copyright_app.errors import InvalidAudioError, ServiceUnavailableError
 from copyright_app.schemas import (
@@ -22,11 +22,12 @@ from copyright_app.schemas import (
     HealthResponse,
     SoupDBHealth,
     StoredAnalysis,
+    StoredAnalysisWithAudio,
 )
 from copyright_app.services.export import export_filename, to_csv, to_json
 
 if TYPE_CHECKING:
-    from copyright_app.domain.ports import HistoryRepository
+    from copyright_app.domain.ports import AudioStore, HistoryRepository
     from copyright_app.services.analysis import CopyrightAnalyzer
     from copyright_app.services.library import CatalogLibrary
 
@@ -36,6 +37,7 @@ NOT_CONFIGURED = "El servicio no está configurado."
 SONG_NOT_FOUND = "La canción no existe en el catálogo."
 AUDIO_NOT_AVAILABLE = "El audio de la canción no está disponible."
 ANALYSIS_NOT_FOUND = "El análisis no existe."
+ANALYSIS_AUDIO_NOT_AVAILABLE = "El audio del análisis no está disponible."
 INTERNAL_ERROR = "Error interno del análisis."
 CORS_METHODS = ("GET", "POST")
 CORS_HEADERS = ("Accept", "Content-Type", "Range")
@@ -77,6 +79,7 @@ def create_app(
     analyzer: "CopyrightAnalyzer | None" = None,
     library: "CatalogLibrary | None" = None,
     history: "HistoryRepository | None" = None,
+    audio_store: "AudioStore | None" = None,
     health_check: HealthCheck | None = None,
     lifespan: Lifespan | None = None,
     cors_origins: Sequence[str] = (),
@@ -93,6 +96,7 @@ def create_app(
     app.state.analyzer = analyzer
     app.state.library = library
     app.state.history = history
+    app.state.audio_store = audio_store
     app.state.health_check = health_check
     if cors_origins:
         app.add_middleware(
@@ -104,6 +108,14 @@ def create_app(
             allow_credentials=False,
         )
     router = APIRouter(prefix=API_PREFIX)
+
+    def with_audio(request: Request, stored: StoredAnalysis) -> StoredAnalysis:
+        store: AudioStore | None = request.app.state.audio_store
+        if store is None or store.archived_file(stored.analysis_id) is None:
+            return stored
+        return StoredAnalysisWithAudio(
+            **stored.model_dump(), audio_url=f"{API_PREFIX}/analyses/{stored.analysis_id}/audio"
+        )
 
     @app.exception_handler(ServiceUnavailableError)
     async def _unavailable(_request: Request, exc: ServiceUnavailableError) -> JSONResponse:
@@ -133,7 +145,7 @@ def create_app(
 
     @router.post(
         "/analyze",
-        response_model=StoredAnalysis | AnalysisResult,
+        response_model=StoredAnalysisWithAudio | StoredAnalysis | AnalysisResult,
         tags=["analysis"],
         summary="Analizar la similitud de un audio con el catálogo",
         responses={
@@ -147,7 +159,8 @@ def create_app(
         file: UploadFile = File(description="Archivo de audio a analizar."),  # noqa: B008
     ) -> AnalysisResult:
         analyzer: CopyrightAnalyzer = _service(request, "analyzer")
-        return analyzer.analyze(file.file, file.filename)
+        result = analyzer.analyze(file.file, file.filename)
+        return with_audio(request, result) if isinstance(result, StoredAnalysis) else result
 
     @router.get(
         "/catalog",
@@ -234,13 +247,34 @@ def create_app(
 
     @router.get(
         "/analyses/{analysis_id}",
-        response_model=StoredAnalysis,
+        response_model=StoredAnalysisWithAudio | StoredAnalysis,
         tags=["history"],
-        summary="Resultado completo de un análisis guardado (sin el audio subido)",
+        summary="Resultado guardado con enlace de audio cuando está disponible",
         responses={**_NOT_FOUND, **_UNAVAILABLE},
     )
     def analysis_detail(request: Request, analysis_id: str) -> StoredAnalysis:
-        return get_stored(request, analysis_id)
+        return with_audio(request, get_stored(request, analysis_id))
+
+    @router.get(
+        "/analyses/{analysis_id}/audio",
+        response_class=FileResponse,
+        tags=["history"],
+        summary="Reproducir el audio del análisis guardado (admite Range)",
+        responses={**_NOT_FOUND, **_UNAVAILABLE},
+    )
+    def analysis_audio(request: Request, analysis_id: str) -> FileResponse:
+        stored = get_stored(request, analysis_id)
+        store: AudioStore | None = request.app.state.audio_store
+        path = store.archived_file(stored.analysis_id) if store is not None else None
+        if path is None:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, ANALYSIS_AUDIO_NOT_AVAILABLE)
+        return FileResponse(
+            path,
+            media_type=AUDIO_MEDIA_TYPES.get(path.suffix, "application/octet-stream"),
+            filename=stored.filename,
+            content_disposition_type="inline",
+            headers={"X-Content-Type-Options": "nosniff"},
+        )
 
     @router.get(
         "/analyses/{analysis_id}/export",

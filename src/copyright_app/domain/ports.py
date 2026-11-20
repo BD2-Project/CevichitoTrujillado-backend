@@ -46,6 +46,10 @@ class AudioStore(Protocol):
 
     def reference_file(self, audio_path: str) -> Path | None: ...
 
+    def archive(self, analysis_id: str, candidate: Path) -> AbstractContextManager[None]: ...
+
+    def archived_file(self, analysis_id: str) -> Path | None: ...
+
 
 class Segmenter(Protocol):
     """Calcula los bloques de 5 s del candidato (no extrae MFCC)."""

@@ -7,7 +7,9 @@ from copyright_app.config import AUDIO_EXTENSIONS, MIN_SEGMENT_RATIO, SEGMENT_SE
 from copyright_app.domain.evidence import TemporalEvidenceResult, build_temporal_evidence
 from copyright_app.domain.models import (
     AudioSearchResult,
+    NeighborRow,
     QuerySegmentResult,
+    SegmentInterval,
     SegmentMatch,
     segment_audio_ref,
 )
@@ -82,6 +84,19 @@ class CopyrightAnalyzer:
                 )
                 for interval in intervals
             ]
+            result = self._result(analysis_id, name, reference, neighbors)
+            if self._history is not None:
+                with self._store.archive(analysis_id, local_path):
+                    return self._history.save(result)
+            return result
+
+    def _result(
+        self,
+        analysis_id: str,
+        name: str,
+        reference: str,
+        neighbors: list[tuple[SegmentInterval, list[NeighborRow]]],
+    ) -> AnalysisResult:
         songs = self._catalog.songs_by_id([row.song_id for _, rows in neighbors for row in rows])
         segments = []
         for interval, rows in neighbors:
@@ -117,10 +132,7 @@ class CopyrightAnalyzer:
         evidence = build_temporal_evidence(
             AudioSearchResult(audio_path=reference, k=self._search_k, segments=tuple(segments))
         )
-        result = to_analysis_result(analysis_id, name, evidence)
-        if self._history is not None:
-            return self._history.save(result)
-        return result
+        return to_analysis_result(analysis_id, name, evidence)
 
 
 def to_analysis_result(

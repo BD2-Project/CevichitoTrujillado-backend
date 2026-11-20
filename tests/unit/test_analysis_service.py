@@ -55,7 +55,10 @@ def test_runs_follow_the_remote_neighbors(tmp_path):
     refs = [ref for ref, _k, _exists in search.calls]
     assert refs == [f"queries/{'f' * 32}/candidate.mp3#segment={i:06d}" for i in range(3)]
     assert all(k == 7 and exists for _ref, k, exists in search.calls)
-    assert not any((tmp_path / "queries").iterdir())  # candidato borrado
+    store = SharedAudioStore(tmp_path)
+    assert not (tmp_path / "queries" / result.analysis_id).exists()
+    assert store.clear_stale_queries() == 0
+    assert store.archived_file(result.analysis_id).read_bytes() == b"audio"
     assert history.get("f" * 32).created_at  # guardado en el historial
 
 
@@ -65,6 +68,20 @@ def test_without_history_returns_the_plain_result(tmp_path):
     result = service.analyze(io.BytesIO(b"audio"), "x.wav")
 
     assert result.matches == [] and not hasattr(result, "created_at")
+    assert SharedAudioStore(tmp_path).archived_file(result.analysis_id) is None
+
+
+def test_failed_history_save_discards_audio(tmp_path):
+    class FailingHistory(InMemoryHistory):
+        def save(self, result):
+            raise RepositoryError("historial no disponible")
+
+    service, _ = analyzer(tmp_path, {}, history=FailingHistory())
+
+    with pytest.raises(RepositoryError, match="historial no disponible"):
+        service.analyze(io.BytesIO(b"audio"), "x.wav")
+
+    assert SharedAudioStore(tmp_path).archived_file("f" * 32) is None
 
 
 def test_unknown_extension_is_staged_without_extension(tmp_path):

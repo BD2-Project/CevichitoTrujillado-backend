@@ -89,6 +89,7 @@ def build_app(settings: Settings) -> FastAPI:
             )
             app.state.library = CatalogLibrary(catalog, store)
             app.state.history = history
+            app.state.audio_store = store
             app.state.health_check = lambda: ping_soupdb(settings)
         except BaseException:
             pool.close()
@@ -97,6 +98,7 @@ def build_app(settings: Settings) -> FastAPI:
             yield
         finally:
             app.state.analyzer = app.state.library = app.state.history = None
+            app.state.audio_store = None
             pool.close()
 
     return create_app(
