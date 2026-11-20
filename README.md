@@ -145,19 +145,19 @@ El primer comando debe imprimir `linux`. Coloca `SoupDB`, `SoupDB-Copyright` y `
 La configuración `.env.demo` genera tres WAV y usa un proyecto de Compose con volúmenes propios. El análisis pasa por Nginx, la API Copyright y SoupDB real. Completa cada comando antes de ejecutar el siguiente.
 
 ```powershell
-docker compose --env-file .env.demo --profile bootstrap --profile demo config --quiet
-docker compose --env-file .env.demo --profile demo build
-docker compose --env-file .env.demo run --rm --no-deps demo-audio
-docker compose --env-file .env.demo --profile bootstrap up -d --no-build bootstrap-catalog
-docker compose --env-file .env.demo --profile bootstrap wait bootstrap-catalog
-docker compose --env-file .env.demo --profile bootstrap logs bootstrap-manifest codebook bootstrap-catalog
+docker compose --env-file .env --profile bootstrap --profile demo config --quiet
+docker compose --env-file .env --profile demo build
+docker compose --env-file .env run --rm --no-deps demo-audio
+docker compose --env-file .env --profile bootstrap up -d --no-build bootstrap-catalog
+docker compose --env-file .env --profile bootstrap wait bootstrap-catalog
+docker compose --env-file .env --profile bootstrap logs bootstrap-manifest codebook bootstrap-catalog
 ```
 
-Confirma que `wait` devuelve código 0 y que los logs de `bootstrap-catalog` muestran `"songs": 3` y `"segments": 12`. En el primer arranque también debe aparecer `"index_created": true`. Luego inicia Copyright y Cevichito con el motor ya preparado.
+Confirma que `wait` devuelve código 0 y que los logs de `bootstrap-catalog` muestran `"songs": 80` y `"segments": 480`. En el primer arranque también debe aparecer `"index_created": true`. Luego inicia Copyright y Cevichito con el motor ya preparado.
 
 ```powershell
-docker compose --env-file .env.demo --profile demo up -d --wait --no-build cevichito
-docker compose --env-file .env.demo --profile demo ps
+docker compose --env-file .env --profile demo up -d --wait --no-build cevichito
+docker compose --env-file .env --profile demo ps
 curl.exe -fsS http://127.0.0.1:5173/api/v1/health
 curl.exe -fsS http://127.0.0.1:5173/api/v1/catalog
 ```
