@@ -171,6 +171,8 @@ Los servicios `soupdb`, `copyright-api` y `cevichito` deben estar activos. La sa
 3. Pulsa **Iniciar análisis** y espera a **Resultados**. Busca **Alpha** entre las coincidencias. El primer análisis puede tardar más mientras el motor carga el procesamiento de audio.
 4. Abre **Historial**, selecciona el expediente de `alpha.wav` y descarga un reporte.
 
+En la prueba de la demo con Docker Desktop, la carga desde el navegador devolvió **Alpha** como primera coincidencia y el expediente apareció en **Historial**.
+
 ### 4. Detén o vuelve a abrir la demo
 
 ```powershell
@@ -191,7 +193,7 @@ docker compose --profile bootstrap logs bootstrap-manifest codebook bootstrap-ca
 docker compose --profile demo up -d --wait --no-build cevichito
 ```
 
-El bootstrap de FMA debe validar 80 canciones y 480 segmentos. Repite el paso 3 con `001\001482.mp3` dentro de tu carpeta FMA. Para detener este proyecto ejecuta `docker compose --profile demo --profile bootstrap down`.
+El bootstrap de FMA debe validar 80 canciones y 480 segmentos. En **Catálogo**, busca **Reindeer Dance**, de Rainbro. Sube `001\001482.mp3` desde tu carpeta FMA y busca esa canción en los resultados. Para detener este proyecto ejecuta `docker compose --profile demo --profile bootstrap down`.
 
 Para trabajar con Vite desde el host, levanta solo `soupdb` y `copyright-api` después del bootstrap. Ejecuta `npm ci` y `npm run dev` en CevichitoTrujillano, abre `http://localhost:5173` y configura `COPYRIGHT_CORS_ORIGINS` para ese origen. El frontend REST del host usa `http://127.0.0.1:8000` por defecto.
 
