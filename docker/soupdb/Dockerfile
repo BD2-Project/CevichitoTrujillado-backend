@@ -1,8 +1,5 @@
 # syntax=docker/dockerfile:1
-# Servidor SoupDB (gestor + plugin soupdb-vector) construido desde el repositorio de
-# SoupDB sin modificarlo. El contexto "soupdb" lo da docker-compose.yml
-# (additional_contexts → ${SOUPDB_SOURCE:-../SoupBD}). Este Dockerfile vive aquí solo
-# para el despliegue de la aplicación; el backend copyright no se construye con él.
+# El contexto adicional aporta el código del gestor y sus plugins.
 
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS build
 WORKDIR /opt/soupdb
@@ -16,6 +13,7 @@ RUN uv sync --frozen --no-dev --no-editable --package soupdb-vector
 FROM python:3.12-slim AS runtime
 WORKDIR /opt/soupdb
 COPY --from=build /opt/soupdb/.venv /opt/soupdb/.venv
+COPY --from=soupdb server ./server
 ENV PATH="/opt/soupdb/.venv/bin:$PATH" \
     PYTHONUNBUFFERED=1 \
     SOUPDB_DATA=/data/db \

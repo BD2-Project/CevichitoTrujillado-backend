@@ -1,9 +1,3 @@
-# Frontend → copyright-api (HTTP) → TCP protocolo SoupDB v2 → soupdb:55432
-#
-#   docker compose --profile bootstrap run --rm bootstrap-catalog   # una vez
-#   docker compose up -d soupdb copyright-api
-#
-# Variables (ver .env.example): FMA_AUDIO_ROOT (obligatoria), SOUPDB_SOURCE.
 name: soupdb-copyright
 
 x-fma-audio: &fma-audio
@@ -17,7 +11,7 @@ services:
     build:
       context: docker/soupdb
       additional_contexts:
-        soupdb: ${SOUPDB_SOURCE:-../SoupBD}
+        soupdb: ${SOUPDB_SOURCE:-../SoupDB}
     image: soupdb-copyright/soupdb:local
     volumes:
       - soupdb-data:/data          # base, HNSW, caché MFCC y codebook (solo SoupDB)
@@ -42,8 +36,18 @@ services:
       - *fma-audio
       - audio-queries:/audio/queries
     ports:
-      - "${COPYRIGHT_PUBLISH_PORT:-8000}:8000"
+      - "127.0.0.1:${COPYRIGHT_PUBLISH_PORT:-8000}:8000"
     restart: unless-stopped
+
+  cevichito:
+    profiles: ["demo"]
+    build:
+      context: ${CEVICHITO_SOURCE:-../CevichitoTrujillano}
+    depends_on:
+      copyright-api:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${CEVICHITO_PUBLISH_PORT:-5173}:8080"
 
   # --- bootstrap (una vez) -------------------------------------------------------------
   bootstrap-manifest:
