@@ -126,7 +126,7 @@ resolviéndolo bajo `/audio` sin salir de la raíz. La API nunca expone rutas.
 
 ## Demo local con Docker
 
-1. Coloca `SoupDB`, `SoupDB-Copyright` y `CevichitoTrujillano` en el mismo directorio y abre una terminal en `SoupDB-Copyright`. Inicia Docker Desktop con contenedores Linux o usa Docker Engine con Compose v2.17 o posterior.
+1. Coloca `SoupDB`, `SoupDB-Copyright` y `CevichitoTrujillano` en el mismo directorio y abre una terminal en `SoupDB-Copyright`. Usa Docker Desktop con contenedores Linux o Docker Engine con el plugin Buildx y una versión de Compose que admita `additional_contexts` y `docker compose wait`.
 2. Copia `.env.example` a `.env`. Ajusta `FMA_AUDIO_ROOT` a la ruta absoluta de FMA Small extraído, donde están las carpetas `000/`, `001/`, etc. Ajusta `SOUPDB_SOURCE` y `CEVICHITO_SOURCE` si los repositorios están en otras rutas.
 3. Valida la configuración, construye las imágenes y prepara el catálogo. En PowerShell, usa `Copy-Item .env.example .env` para crear el archivo del paso anterior.
 
@@ -144,7 +144,7 @@ resolviéndolo bajo `/audio` sin salir de la raíz. La API nunca expone rutas.
 
    ```sh
    docker compose --profile demo up -d --wait cevichito
-   docker compose ps
+   docker compose --profile demo ps
    curl -f http://127.0.0.1:5173/api/v1/health
    curl -f http://127.0.0.1:5173/api/v1/catalog
    ```

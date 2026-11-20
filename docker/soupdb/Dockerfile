@@ -23,5 +23,5 @@ ENV PATH="/opt/soupdb/.venv/bin:$PATH" \
 EXPOSE 55432
 # PING/PONG del protocolo v2 (frame de 8 bytes "SP" 0x02 0x01 + longitud 0).
 HEALTHCHECK --interval=10s --timeout=5s --start-period=30s --retries=5 \
-  CMD ["python", "-c", "import socket; s = socket.create_connection(('127.0.0.1', 55432), 3); s.sendall(b'SP\\x02\\x01\\x00\\x00\\x00\\x00'); assert s.recv(8)[:4] == b'SP\\x02\\x02'"]
+  CMD ["python", "-c", "import socket; s = socket.create_connection(('127.0.0.1', 55432), 3); s.sendall(bytes.fromhex('5350020100000000')); assert s.makefile('rb').read(8) == bytes.fromhex('5350020200000000')"]
 CMD ["python", "-m", "engine"]
