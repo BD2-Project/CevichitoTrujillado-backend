@@ -12,6 +12,7 @@ FROM python:3.12-slim AS runtime
 WORKDIR /app
 COPY --from=build /app/.venv /app/.venv
 COPY data ./data
+COPY scripts/generate_demo_audio.py ./scripts/generate_demo_audio.py
 ENV PATH="/app/.venv/bin:$PATH" \
     PYTHONUNBUFFERED=1 \
     SOUPDB_HOST=soupdb \

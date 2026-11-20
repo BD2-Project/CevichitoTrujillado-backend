@@ -128,33 +128,70 @@ resolviéndolo bajo `/audio` sin salir de la raíz. La API nunca expone rutas.
 
 Consulta el [informe de integración](docs/informe-integracion.md) para ver la cobertura REST, la compatibilidad con rsoup y SoupChef, y las pruebas pendientes.
 
-1. Coloca `SoupDB`, `SoupDB-Copyright` y `CevichitoTrujillano` en el mismo directorio y abre una terminal en `SoupDB-Copyright`. Usa Docker Desktop con contenedores Linux o Docker Engine con el plugin Buildx y una versión de Compose que admita `additional_contexts` y `docker compose wait`.
-2. Copia `.env.example` a `.env`. Ajusta `FMA_AUDIO_ROOT` a la ruta absoluta de FMA Small extraído, donde están las carpetas `000/`, `001/`, etc. Ajusta `SOUPDB_SOURCE` y `CEVICHITO_SOURCE` si los repositorios están en otras rutas.
-3. Valida la configuración, construye las imágenes y prepara el catálogo. En PowerShell, usa `Copy-Item .env.example .env` para crear el archivo del paso anterior.
+### 1. Comprueba Docker y los repositorios
 
-   ```sh
-   docker compose --profile bootstrap --profile demo config --quiet
-   docker compose --profile demo build
-   docker compose --profile bootstrap up -d bootstrap-catalog
-   docker compose --profile bootstrap wait bootstrap-catalog
-   docker compose --profile bootstrap logs bootstrap-manifest codebook bootstrap-catalog
-   ```
+Abre Docker Desktop y espera a que arranque. Si el menú de Docker Desktop ofrece **Switch to Linux containers**, selecciónalo. Desde PowerShell verifica el servidor, Compose y Buildx.
 
-   Espera a que `bootstrap-catalog` termine con código 0. Debe validar las 80 canciones, los 480 segmentos y el índice HNSW. Si falla, revisa los logs de los tres servicios de bootstrap antes de iniciar el frontend.
+```powershell
+docker info --format '{{.OSType}}'
+docker compose version
+docker buildx version
+```
 
-4. Levanta la API y el frontend, y verifica la salud y el catálogo.
+El primer comando debe imprimir `linux`. Coloca `SoupDB`, `SoupDB-Copyright` y `CevichitoTrujillano` en carpetas hermanas. Ejecuta todos los comandos siguientes desde `SoupDB-Copyright`. Compose construye la imagen de Copyright a partir de `Dockerfile` y la etiqueta `soupdb-copyright/api:local`. También construye las imágenes de SoupDB con HNSW y del frontend web.
 
-   ```sh
-   docker compose --profile demo up -d --wait cevichito
-   docker compose --profile demo ps
-   curl -f http://127.0.0.1:5173/api/v1/health
-   curl -f http://127.0.0.1:5173/api/v1/catalog
-   ```
+### 2. Prepara el catálogo de demo y arranca los tres servicios
 
-   En Windows usa `curl.exe` si PowerShell asigna `curl` a otro comando. El navegador accede a la API a través del mismo origen del frontend.
+La configuración `.env.demo` genera tres WAV y usa un proyecto de Compose con volúmenes propios. El análisis pasa por Nginx, la API Copyright y SoupDB real. Completa cada comando antes de ejecutar el siguiente.
 
-5. Abre `http://127.0.0.1:5173`, explora el catálogo y escucha una referencia. Sube una pista FMA del catálogo en **Nuevo análisis**, revisa la evidencia en **Resultados** y confirma que el análisis reaparece en **Historial**. Prueba la descarga de un reporte desde ese resultado.
-6. Detén la demo con `docker compose --profile demo --profile bootstrap down`. Los volúmenes conservan el catálogo y el historial para el siguiente arranque.
+```powershell
+docker compose --env-file .env.demo --profile bootstrap --profile demo config --quiet
+docker compose --env-file .env.demo --profile demo build
+docker compose --env-file .env.demo run --rm --no-deps demo-audio
+docker compose --env-file .env.demo --profile bootstrap up -d --no-build bootstrap-catalog
+docker compose --env-file .env.demo --profile bootstrap wait bootstrap-catalog
+docker compose --env-file .env.demo --profile bootstrap logs bootstrap-manifest codebook bootstrap-catalog
+```
+
+Confirma que `wait` devuelve código 0 y que los logs de `bootstrap-catalog` muestran `"songs": 3` y `"segments": 12`. En el primer arranque también debe aparecer `"index_created": true`. Luego inicia Copyright y Cevichito con el motor ya preparado.
+
+```powershell
+docker compose --env-file .env.demo --profile demo up -d --wait --no-build cevichito
+docker compose --env-file .env.demo --profile demo ps
+curl.exe -fsS http://127.0.0.1:5173/api/v1/health
+curl.exe -fsS http://127.0.0.1:5173/api/v1/catalog
+```
+
+Los servicios `soupdb`, `copyright-api` y `cevichito` deben estar activos. La salud devuelve `"status":"ok"` y el catálogo devuelve tres canciones. El navegador usa el mismo origen para la interfaz y la API, sin configurar CORS ni iniciar Vite.
+
+### 3. Prueba el análisis desde Cevichito
+
+1. Abre [Cevichito en el navegador](http://127.0.0.1:5173). En **Catálogo**, abre **Alpha** y reproduce el audio de referencia.
+2. Ve a **Nuevo análisis** y selecciona `.local\demo\fma\alpha.wav` dentro de `SoupDB-Copyright`. Para obtener su ruta absoluta en PowerShell, ejecuta `(Resolve-Path .local\demo\fma\alpha.wav).Path`.
+3. Pulsa **Iniciar análisis** y espera a **Resultados**. Busca **Alpha** entre las coincidencias. El primer análisis puede tardar más mientras el motor carga el procesamiento de audio.
+4. Abre **Historial**, selecciona el expediente de `alpha.wav` y descarga un reporte.
+
+### 4. Detén o vuelve a abrir la demo
+
+```powershell
+docker compose --env-file .env.demo --profile demo --profile bootstrap down
+```
+
+Los volúmenes conservan el catálogo y el historial. Para volver a abrir la demo, repite solo el arranque de `cevichito` del paso 2. Si falla el arranque, inspecciona los servicios con `docker compose --env-file .env.demo --profile demo logs soupdb copyright-api cevichito`. Si hay un puerto ocupado, usa `docker ps` para identificar el otro servicio. Los puertos publicados por defecto son 5173, 8000 y 55432.
+
+### Alternativa con FMA Small
+
+Detén la demo sintética antes de usar los mismos puertos. Si aún no tienes `.env`, créalo con `Copy-Item .env.example .env`. En ese archivo, ajusta `FMA_AUDIO_ROOT` a la ruta absoluta del dataset extraído, con las carpetas `000/`, `001/`, etc. Si los repositorios están en otras rutas, ajusta también `SOUPDB_SOURCE` y `CEVICHITO_SOURCE`.
+
+```powershell
+docker compose --profile demo build
+docker compose --profile bootstrap up -d --no-build bootstrap-catalog
+docker compose --profile bootstrap wait bootstrap-catalog
+docker compose --profile bootstrap logs bootstrap-manifest codebook bootstrap-catalog
+docker compose --profile demo up -d --wait --no-build cevichito
+```
+
+El bootstrap de FMA debe validar 80 canciones y 480 segmentos. Repite el paso 3 con `001\001482.mp3` dentro de tu carpeta FMA. Para detener este proyecto ejecuta `docker compose --profile demo --profile bootstrap down`.
 
 Para trabajar con Vite desde el host, levanta solo `soupdb` y `copyright-api` después del bootstrap. Ejecuta `npm ci` y `npm run dev` en CevichitoTrujillano, abre `http://localhost:5173` y configura `COPYRIGHT_CORS_ORIGINS` para ese origen. El frontend REST del host usa `http://127.0.0.1:8000` por defecto.
 

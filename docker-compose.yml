@@ -6,6 +6,14 @@ x-fma-audio: &fma-audio
   target: /audio/fma
   read_only: true
 
+x-catalog: &catalog
+  type: bind
+  source: ${COPYRIGHT_CATALOG_FILE:-./data/fma_small_catalog.json}
+  target: /app/data/fma_small_catalog.json
+  read_only: true
+  bind:
+    create_host_path: false
+
 services:
   soupdb:
     build:
@@ -49,7 +57,13 @@ services:
     ports:
       - "127.0.0.1:${CEVICHITO_PUBLISH_PORT:-5173}:8080"
 
-  # --- bootstrap (una vez) -------------------------------------------------------------
+  demo-audio:
+    profiles: ["synthetic"]
+    image: soupdb-copyright/api:local
+    command: ["python", "/app/scripts/generate_demo_audio.py", "/demo"]
+    volumes:
+      - ./.local/demo:/demo
+
   bootstrap-manifest:
     profiles: ["bootstrap"]
     image: soupdb-copyright/api:local
@@ -63,6 +77,7 @@ services:
       - --verify-audio
     volumes:
       - *fma-audio
+      - *catalog
       - bootstrap-artifacts:/artifacts
 
   codebook:
@@ -106,6 +121,8 @@ services:
       - --profile-root=/audio
       - --codebook=/data/artifacts/codebook.npz
       - --cache=/data/cache
+    volumes:
+      - *catalog
 
 volumes:
   soupdb-data:
