@@ -1,8 +1,3 @@
-"""Evidencia temporal: transformación pura de ``AudioSearchResult`` (sin SoupDB).
-
-Portado de SoupDB. La cadena real búsqueda remota → evidencia se prueba en ``tests/e2e``.
-"""
-
 import random
 from statistics import fmean
 
@@ -62,9 +57,6 @@ def runs_summary(evidence: TemporalEvidenceResult):
         )
         for song in evidence.songs
     ]
-
-
-# --- secuencias -----------------------------------------------------------------
 
 
 def test_perfect_sequence_is_one_run():
@@ -170,9 +162,6 @@ def test_low_scores_are_kept_without_threshold():
     assert evidence.songs[0].best_run.max_score == 0.02
 
 
-# --- varias canciones y orden -------------------------------------------------------
-
-
 def test_songs_are_grouped_and_ordered_by_best_run():
     evidence = build_temporal_evidence(
         result(
@@ -273,9 +262,6 @@ def test_runs_inside_a_song_are_in_candidate_time_order():
     ]
 
 
-# --- vacíos -----------------------------------------------------------------------
-
-
 def test_no_segments_gives_empty_evidence():
     evidence = build_temporal_evidence(result())
 
@@ -284,9 +270,6 @@ def test_no_segments_gives_empty_evidence():
 
 def test_segments_without_matches_give_empty_evidence():
     assert build_temporal_evidence(result(query(0), query(1))).songs == ()
-
-
-# --- consistencia ------------------------------------------------------------------
 
 
 def test_inconsistent_song_metadata_is_rejected():
@@ -300,9 +283,6 @@ def test_duplicate_logical_point_is_rejected():
     duplicated = match(1, 3, 0.7)
     with pytest.raises(CopyrightEvidenceError, match="duplicado"):
         build_temporal_evidence(result(query(0, match(1, 3, 0.9), duplicated)))
-
-
-# --- determinismo -----------------------------------------------------------------
 
 
 def test_result_does_not_depend_on_input_order():

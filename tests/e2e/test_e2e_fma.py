@@ -1,14 +1,4 @@
-"""E2E real con audio FMA: smoke test conocido ``Reindeer Dance / Rainbro``.
-
-Catálogo FMA pequeño (la primera canción de cada uno de los 8 géneros del
-catálogo versionado, que incluye la pista 1482) copiado a un ``/audio`` temporal,
-codebook K=128 entrenado con el CLI oficial de ``soupdb-vector``, HNSW creado por
-SQL remoto y análisis por la API.
-
-Necesita FMA Small en disco: ``FMA_AUDIO_ROOT`` (carpeta con ``000/``, ``001/``…;
-por defecto ``D:/datasets/fma/fma_small``). Si no existe, el test se salta con el
-motivo explícito; el dataset (7.2 GiB) nunca se versiona.
-"""
+"""Prueba de similitud entre dos pistas conocidas de FMA Small."""
 
 import json
 import os

@@ -1,5 +1,3 @@
-"""Volumen compartido, segmentación, configuración, modelos y bootstrap (sin SoupDB)."""
-
 import io
 import json
 from pathlib import Path
@@ -16,9 +14,6 @@ from tests.support.audio import write_wav
 
 CATALOG = Path(__file__).resolve().parents[2] / "data" / "fma_small_catalog.json"
 ID = "e" * 32
-
-
-# --- volumen compartido -------------------------------------------------------------------
 
 
 def test_stage_writes_under_queries_and_always_cleans_up(tmp_path):
@@ -57,9 +52,6 @@ def test_clear_stale_queries_only_removes_analysis_folders(tmp_path):
     assert [p.name for p in (tmp_path / "queries").iterdir()] == ["keep"]
 
 
-# --- segmentación ---------------------------------------------------------------------
-
-
 @pytest.mark.parametrize(
     ("seconds", "expected"),
     [
@@ -81,9 +73,6 @@ def test_librosa_segmenter_decodes_real_audio(tmp_path):
     (tmp_path / "bad.wav").write_bytes(b"no es audio" * 50)
     with pytest.raises(InvalidAudioError):
         LibrosaSegmenter().intervals(tmp_path / "bad.wav")
-
-
-# --- configuración ---------------------------------------------------------------------
 
 
 def test_settings_defaults_and_env():
@@ -121,9 +110,6 @@ def test_cors_rejects_paths():
         parse_cors_origins("http://x/app")
 
 
-# --- modelos -------------------------------------------------------------------------------
-
-
 @pytest.mark.parametrize(
     ("path", "ok"),
     [
@@ -144,9 +130,6 @@ def test_relative_audio_paths(path, ok):
 def test_song_cannot_live_under_queries():
     with pytest.raises(ValueError):
         Song(1, "t", "a", "queries/x.mp3", 1.0)
-
-
-# --- bootstrap -----------------------------------------------------------------------------
 
 
 def test_versioned_fma_catalog_is_80_songs_8_genres_480_segments():

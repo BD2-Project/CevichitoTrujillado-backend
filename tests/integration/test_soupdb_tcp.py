@@ -1,5 +1,3 @@
-"""Cliente y repositorios contra un servidor SoupDB real (proceso externo, solo TCP)."""
-
 from concurrent.futures import ThreadPoolExecutor
 
 import pytest
@@ -48,9 +46,6 @@ def segments(s: Song, first=1):
         AudioSegment(first + i, s.song_id, i, a, b, segment_audio_ref(s.audio_path, i))
         for i, a, b in bounds
     )
-
-
-# --- protocolo ------------------------------------------------------------------------
 
 
 def test_ping(client):
@@ -126,9 +121,6 @@ def test_system_tables_are_plain_sql(client):
 
     assert "t" in tables
     assert sorted(columns) == [(0, "id", "INT"), (1, "name", "TEXT")]
-
-
-# --- repositorios ----------------------------------------------------------------------
 
 
 def test_schema_is_idempotent_and_detects_incompatible_tables(pool, client):

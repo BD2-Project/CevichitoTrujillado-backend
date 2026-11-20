@@ -1,5 +1,3 @@
-"""WAV sintéticos deterministas para tests (sin material externo)."""
-
 from pathlib import Path
 
 import numpy as np

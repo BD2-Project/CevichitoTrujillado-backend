@@ -1,10 +1,4 @@
-"""Lanzador de ``python -m engine`` para los tests (lo ejecuta el intérprete de SoupDB).
-
-Este archivo **no** se importa desde los tests: se pasa como script al Python
-del entorno de SoupDB. Solo añade una parada ordenada en Windows: ``CTRL_BREAK``
-se convierte en ``KeyboardInterrupt``, así ``python -m engine`` cierra el
-``Catalog`` en su ``finally`` (en Linux basta ``SIGTERM``, que ya maneja el gestor).
-"""
+"""Convierte CTRL_BREAK en KeyboardInterrupt para cerrar el catálogo."""
 
 import runpy
 import signal

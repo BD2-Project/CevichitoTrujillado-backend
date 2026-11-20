@@ -1,5 +1,3 @@
-"""Contrato HTTP con servicios en memoria (sin SoupDB)."""
-
 import subprocess
 import sys
 

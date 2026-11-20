@@ -1,13 +1,4 @@
-"""Servidor SoupDB real como **proceso externo** para tests de integración y E2E.
-
-Los tests no importan nada del gestor: arrancan ``python -m engine`` con el
-intérprete de un entorno donde SoupDB y el plugin ``soupdb-vector`` están
-instalados, y hablan con él por TCP.
-
-- ``SOUPDB_PYTHON``: intérprete de SoupDB. Por defecto, el venv del repositorio
-  hermano ``../SoupBD/.venv``. Si no existe, los tests que lo necesitan se
-  marcan como *skip* con el motivo explícito.
-"""
+"""Los tests ejecutan SoupDB con su propio intérprete y se conectan por TCP."""
 
 from __future__ import annotations
 

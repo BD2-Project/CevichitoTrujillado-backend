@@ -1,6 +1,3 @@
-"""Repositorios con un cliente falso: qué SQL envían, con qué parámetros y cómo
-interpretan las respuestas. Sin servidor."""
-
 from contextlib import contextmanager
 
 import pytest

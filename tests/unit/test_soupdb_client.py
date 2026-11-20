@@ -1,6 +1,3 @@
-"""Codec y cliente TCP del protocolo v2, sin SoupDB: bytes de la especificación y un
-servidor falso en un hilo."""
-
 import socket
 import struct
 import threading
@@ -17,8 +14,6 @@ from copyright_app.infrastructure.soupdb_client import (
     SoupDBPool,
     SoupDBProtocolError,
 )
-
-# --- frames y payloads (ejemplos escritos a mano desde docs/protocolo.md) ---------------
 
 
 def test_frame_header_is_magic_version_opcode_length():
@@ -109,9 +104,6 @@ def test_malformed_payloads_raise_protocol_errors(payload):
 def test_bad_headers(header):
     with pytest.raises(SoupDBProtocolError):
         proto.decode_header(header)
-
-
-# --- cliente contra un servidor falso ---------------------------------------------------------
 
 
 class FakeServer:

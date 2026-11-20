@@ -1,13 +1,4 @@
-"""E2E real con audio sintético: SoupDB (proceso externo) + plugin vectorial + API.
-
-Flujo completo, sin dobles:
-
-    WAV → catálogo JSON → copyright-bootstrap training-manifest
-    → codebook K=128 con el CLI oficial de soupdb-vector (proceso de SoupDB)
-    → servidor SoupDB → copyright-bootstrap catalog (TCP: tablas, INSERT,
-      CREATE EXTENSION HNSW, CREATE INDEX) → runtime FastAPI → upload, búsqueda,
-      evidencia, historial, export, audio original → reinicio de SoupDB → reapertura.
-"""
+"""Prueba el bootstrap, el análisis por HTTP y el reinicio de SoupDB."""
 
 import csv
 import io

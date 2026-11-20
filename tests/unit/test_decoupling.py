@@ -1,10 +1,3 @@
-"""El código de producción no depende del gestor: solo del protocolo TCP.
-
-Analiza el AST de cada archivo de ``src/`` (y el Dockerfile del backend) y falla si
-aparece un import de ``engine``/``soupdb``/``soupdb_vector``/``applications`` o un
-uso de los internals que antes usaba la aplicación.
-"""
-
 import ast
 import tomllib
 from pathlib import Path

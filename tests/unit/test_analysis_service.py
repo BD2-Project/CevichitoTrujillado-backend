@@ -1,5 +1,3 @@
-"""Servicio de análisis con dobles de los puertos: sin SoupDB ni audio real."""
-
 import io
 import re
 

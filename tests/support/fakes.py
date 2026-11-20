@@ -1,5 +1,3 @@
-"""Dobles en memoria de los puertos del dominio (sin SoupDB)."""
-
 from pathlib import Path
 
 from copyright_app.domain.models import (
