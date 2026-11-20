@@ -1,5 +1,4 @@
 # syntax=docker/dockerfile:1
-# Backend copyright-api. No contiene código de SoupDB: habla con él por TCP (protocolo v2).
 
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS build
 WORKDIR /app

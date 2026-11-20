@@ -1,19 +1,3 @@
-"""Exportación de un análisis persistido a JSON o CSV.
-
-Funciones puras (stdlib + pydantic): la API las importa sin cargar el
-pipeline multimedia.
-
-- JSON: el :class:`~copyright_app.schemas.StoredAnalysis`
-  completo, el mismo cuerpo que ``GET /api/v1/analyses/{analysis_id}``.
-- CSV: una fila por run de evidencia, en el orden del resultado. Sin runs solo
-  hay cabecera. ``duration`` es ``query_end - query_start`` (s). Los campos de
-  texto que empiezan por ``= + - @`` o un control se prefijan con ``'`` para que
-  una hoja de cálculo no los ejecute como fórmula (el nombre del archivo lo elige
-  el usuario).
-
-No hay umbrales, veredictos ni probabilidades: ``score`` es una similitud.
-"""
-
 import csv
 import io
 import re

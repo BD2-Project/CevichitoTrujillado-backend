@@ -11,8 +11,7 @@ dependencies = [
   "fastapi>=0.162.5",
   "python-multipart>=0.0.33",
   "uvicorn>=0.54.0",
-  # Solo para segmentar el candidato (duración y número de bloques de 5 s), con la
-  # misma decodificación que el perfil de SoupDB. El MFCC/HNSW lo hace SoupDB.
+  # Decodifica con los mismos parametros que el perfil SoupDB.
   "librosa==1.0.0",
 ]
 

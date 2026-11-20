@@ -1,6 +1,3 @@
-"""Errores de la aplicación que la API traduce a HTTP (módulo ligero)."""
-
-
 class AppError(Exception):
     """Base de los errores esperados."""
 

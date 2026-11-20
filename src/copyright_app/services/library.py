@@ -1,10 +1,3 @@
-"""Catálogo de solo lectura para el frontend y audio original por ``song_id``.
-
-El archivo se resuelve **solo** a partir de un ``song_id``: primero se lee su
-``audio_path`` de SoupDB (TCP) y después se resuelve bajo ``/audio`` con
-:meth:`AudioStore.reference_file`. El cliente nunca envía rutas.
-"""
-
 import logging
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath

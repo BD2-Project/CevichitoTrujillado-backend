@@ -1,18 +1,3 @@
-"""Repositorios sobre SoupDB que solo usan :class:`SoupDBClient` (TCP, protocolo v2).
-
-Todo es SQL enviado al servidor. Los valores van como parámetros de prepared
-statements (``$1..$n``); la única excepción es la referencia de ``SIMILAR_TO``,
-que el parser de SoupDB solo admite como literal: se genera en servidor y se
-valida con una expresión regular estricta antes de escribirla en el SQL.
-
-SoupDB no tiene ``UNIQUE``, ``FOREIGN KEY`` ni ``IF NOT EXISTS``: las invariantes
-(ids únicos, padre existente, ``segment_index`` único por canción, ``audio_ref``
-canónico) se comprueban con consultas antes de insertar, dentro de una
-transacción ``BEGIN``/``COMMIT`` de la conexión. La existencia y el schema de
-las tablas se consultan en las tablas de sistema (``SysTables``, ``SysColumns``,
-``SysIndexes``, ``SysPluginIndexes``) con ``SELECT``.
-"""
-
 from __future__ import annotations
 
 import json
@@ -146,9 +131,6 @@ class _Base:
             raise ServiceUnavailableError("SoupDB no está disponible") from exc
 
 
-# --- schema -------------------------------------------------------------------------
-
-
 class SoupDBSchema(_Base):
     """Crea y valida tablas e índices B+ por SQL. Idempotente; nunca borra datos."""
 
@@ -188,9 +170,6 @@ class SoupDBSchema(_Base):
         with self._connection() as db:
             existing = {row[0] for row in db.query("SELECT table_name FROM SysTables").rows}
         return [table for table in tables if table not in existing]
-
-
-# --- catálogo ------------------------------------------------------------------------
 
 
 def _song(row: Sequence[object]) -> Song:
@@ -244,11 +223,7 @@ class SoupDBCatalogRepository(_Base):
         return songs, segments
 
     def register_song(self, song: Song, segments: Sequence[AudioSegment]) -> bool:
-        """Registra una canción y sus segmentos en una transacción.
-
-        Si la canción ya existe **idéntica** (mismos campos y segmentos) no hace
-        nada y devuelve ``False``; si existe distinta, :class:`IntegrityError`.
-        """
+        """Registra la canción en una transacción. Una coincidencia exacta devuelve False."""
         self._validate_segments(song, segments)
         with self._connection() as db:
             existing = self._get_song(db, song.song_id)
@@ -320,8 +295,6 @@ class SoupDBCatalogRepository(_Base):
         return _song(rows[0])
 
 
-# --- búsqueda HNSW -----------------------------------------------------------------------
-
 _SIMILAR_SQL = (
     "SELECT segment_id, song_id, segment_index, start_seconds, end_seconds, audio_ref, "
     "SCORE() AS score FROM {table} WHERE SIMILAR_TO({reference}, k={k}) "
@@ -380,9 +353,6 @@ class SoupDBSearchRepository(_Base):
             and int(options.get("dimension", 0)) == VECTOR_DIMENSION
             and options.get("profile_id") == PROFILE_ID
         )
-
-
-# --- historial -------------------------------------------------------------------------------
 
 
 class SoupDBHistoryRepository(_Base):

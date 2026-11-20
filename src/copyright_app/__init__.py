@@ -1,1 +1,1 @@
-"""Backend de similitud de audio (copyright/remixes) sobre SoupDB por TCP."""
+"""Backend de similitud de audio sobre SoupDB por TCP."""

@@ -1,16 +1,3 @@
-"""API REST del backend de copyright: la única frontera del frontend.
-
-``create_app`` solo construye la app HTTP. Los servicios se leen de ``app.state``
-en cada petición (los instala el ``lifespan`` de :mod:`copyright_app.runtime` o un
-test): ``analyzer``, ``library``, ``history`` y ``health_check``. Si falta uno, su
-endpoint responde 503.
-
-Errores: ``InvalidAudioError`` → 422; ``ServiceUnavailableError`` (SoupDB caído,
-índice ausente) → 503; cualquier otro → 500 genérico sin traceback.
-
-Importar este módulo no abre conexiones ni lee el entorno.
-"""
-
 import logging
 from collections.abc import Callable, Sequence
 from contextlib import AbstractAsyncContextManager

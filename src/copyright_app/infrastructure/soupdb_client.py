@@ -1,28 +1,4 @@
-"""Cliente TCP del protocolo público de SoupDB (v2), escrito desde ``docs/protocolo.md``.
-
-Es la **única** puerta de este backend hacia la base: no se importa nada del
-gestor. Implementa el framing y los payloads de la especificación pública:
-
-Frame (enteros big-endian)::
-
-    magic "SP" (2B) | version (1B) | opcode (1B) | length u32 | payload
-
-Requests: ``PING 0x01``, ``BEGIN 0x03``, ``COMMIT 0x04``, ``ROLLBACK 0x05``,
-``QUERY 0x06``, ``PREPARE 0x07``, ``EXECUTE 0x08``, ``DEALLOCATE 0x09``.
-Responses: ``PONG 0x02``, ``OK 0x10``, ``RESULT 0x11``, ``ERROR 0x12``.
-
-Valores (tag + datos): ``NULL 0x00``, ``INT 0x01`` (i32), ``FLOAT 0x02`` (f64),
-``TEXT 0x03`` (u16 + UTF-8), ``BOOL 0x04`` (1 byte), ``POINT 0x05`` (dos f64),
-``BYTES 0x06`` (u32 + bytes; la tabla de tags del documento lo nombra sin dar
-su valor, comprobado contra el servidor real en los tests de integración).
-
-Header de columnas v2: ``name``, ``type_name``, ``encoding`` (0 nativo, 1 fijo,
-2 variable, 3 opaco), ``size`` y ``length``. Un tipo desconocido llega como bytes.
-
-Una conexión es una sesión del gestor: ``BEGIN``/``COMMIT``/``ROLLBACK`` y los
-prepared statements viven en ella. :class:`SoupDBClient` no es thread-safe; para
-varios hilos se usa :class:`SoupDBPool` (una conexión por hilo a la vez).
-"""
+"""Cliente del protocolo público SoupDB v2."""
 
 from __future__ import annotations
 
@@ -101,9 +77,6 @@ class SoupDBError(SoupDBClientError):
         self.message = message
 
 
-# --- tipos de resultado ---------------------------------------------------------
-
-
 @dataclass(frozen=True, slots=True)
 class Point:
     x: float
@@ -137,9 +110,6 @@ class QueryResult:
     def dicts(self) -> list[dict[str, Value]]:
         names = self.column_names
         return [dict(zip(names, row, strict=True)) for row in self.rows]
-
-
-# --- codec ------------------------------------------------------------------------
 
 
 def encode_frame(opcode: int, payload: bytes = b"", version: int = VERSION) -> bytes:
@@ -296,9 +266,6 @@ def decode_error(payload: bytes) -> SoupDBError:
     return SoupDBError(code, message)
 
 
-# --- conexión -----------------------------------------------------------------------
-
-
 class SoupDBClient:
     """Una conexión TCP (una sesión del gestor). No es thread-safe."""
 
@@ -442,11 +409,7 @@ class SoupDBClient:
 
 
 class SoupDBPool:
-    """Conexiones reutilizables; cada hilo toma una en exclusiva.
-
-    Una conexión que falla a nivel de transporte o protocolo se descarta; un
-    ``ERROR`` del gestor no la invalida.
-    """
+    """Presta conexiones exclusivas y descarta fallos de transporte o protocolo."""
 
     def __init__(self, factory: Callable[[], SoupDBClient], size: int) -> None:
         if type(size) is not int or size <= 0:

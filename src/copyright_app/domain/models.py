@@ -1,10 +1,3 @@
-"""Modelos del dominio: catálogo, búsqueda por segmentos y referencias de audio.
-
-Sin I/O. Las invariantes de cada fila se validan al construirla; las que
-dependen de otras filas (ids únicos, padre existente) las comprueba el
-repositorio antes de escribir.
-"""
-
 import math
 import re
 from dataclasses import dataclass

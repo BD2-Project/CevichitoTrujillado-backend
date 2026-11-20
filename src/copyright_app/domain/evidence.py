@@ -1,19 +1,4 @@
-"""Evidencia temporal: agrupa los vecinos por segmento en secuencias por canción.
-
-Transformación pura de un ``AudioSearchResult``: no abre archivos, no ejecuta SQL,
-no conoce HNSW ni FastAPI y no vuelve a buscar.
-
-Para cada match, ``alignment_offset_segments = source_segment_index -
-query_segment_index``. Los matches de una misma canción con el mismo offset y
-segmentos de consulta consecutivos forman una ``TemporalRun``: el candidato
-reproduce un tramo continuo del original con ese desplazamiento.
-
-Esto es **evidencia de similitud, no una decisión**. No hay umbral: se usan todos
-los matches recibidos, también los de score bajo; las métricas de cada run
-(``segment_count``, ``mean_score``, ``min_score``, ``max_score``) permiten que una
-capa posterior decida qué es significativo. ``score`` sigue siendo la similitud
-del motor, no una probabilidad de copyright.
-"""
+"""Agrupa las coincidencias por canción, continuidad y desplazamiento temporal."""
 
 from __future__ import annotations
 
@@ -83,10 +68,7 @@ class SongEvidence:
 
 @dataclass(frozen=True, slots=True)
 class TemporalEvidenceResult:
-    """Evidencia por canción, ordenada de más a menos coherente temporalmente.
-
-    El orden no expresa una probabilidad de infracción.
-    """
+    """Ordena por coherencia temporal, sin estimar el riesgo de infracción."""
 
     audio_path: str
     k: int

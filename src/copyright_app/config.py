@@ -1,10 +1,3 @@
-"""Constantes de la aplicación (sin I/O ni dependencias).
-
-Los valores de audio deben coincidir con el perfil ``audio_segment`` que SoupDB
-usa al vectorizar (plugin ``soupdb-vector``): 22 050 Hz mono, bloques de 5 s sin
-solapamiento y el último bloque solo si dura al menos la mitad.
-"""
-
 from typing import Final
 
 SERVICE_NAME: Final = "soupdb-copyright-api"

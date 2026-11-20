@@ -1,19 +1,3 @@
-"""Análisis de un upload: staging compartido → segmentos → HNSW remoto → evidencia → historial.
-
-Depende solo de los puertos del dominio (``domain.ports``):
-
-1. ``AudioStore.stage``: escribe el upload en ``queries/<analysis_id>/candidate<ext>``
-   del volumen compartido con SoupDB; ``analysis_id`` es un ``uuid4`` generado aquí.
-2. ``Segmenter.intervals``: bloques de 5 s (misma regla que el perfil de SoupDB).
-3. ``SearchRepository.similar_segments`` por segmento: SoupDB vectoriza
-   ``queries/<id>/candidate<ext>#segment=NNNNNN`` y busca en su HNSW.
-4. ``build_temporal_evidence`` (puro) → ``AnalysisResult``.
-5. ``HistoryRepository.save`` si hay historial.
-6. El candidato se borra siempre (``finally`` del staging).
-
-El resultado es evidencia de similitud acústica y temporal; no determina copyright.
-"""
-
 import re
 import uuid
 from pathlib import PurePosixPath, PureWindowsPath

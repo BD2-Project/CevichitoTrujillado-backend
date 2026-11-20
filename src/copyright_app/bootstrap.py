@@ -1,24 +1,4 @@
-"""Bootstrap reproducible del catálogo en un servidor SoupDB, todo por TCP.
-
-Pasos (los ejecuta ``docker compose --profile bootstrap``; ver README)::
-
-    1. copyright-bootstrap training-manifest   (backend)  catálogo JSON → manifest JSONL
-    2. python -m soupdb_vector.multimedia.build_vectors ... (contenedor SoupDB, plugin oficial)
-       manifest → codebook.npz K=128
-    3. copyright-bootstrap catalog             (backend)  por TCP:
-         CREATE TABLE songs/audio_segments + índices B+   (si faltan)
-         INSERT de canciones y segmentos, con invariantes, en transacciones
-         CREATE EXTENSION HNSW WITH (storage_root, profiles)  → persistido en SysPlugins
-         CREATE INDEX copyright_audio_hnsw ... USING HNSW     → SoupDB vectoriza y construye
-
-El catálogo de entrada es un JSON versionado (``data/fma_small_catalog.json``:
-80 canciones FMA Small, 8 géneros, 480 segmentos) con rutas relativas a
-``/audio`` (``fma/000/000002.mp3``). El audio no se versiona.
-
-Idempotente: lo que ya existe idéntico se reutiliza; lo que existe distinto es
-un error (nunca se sobrescribe ni se borra nada). El backend runtime no ejecuta
-estos pasos ni entrena codebooks.
-"""
+"""Prepara el catálogo y el índice HNSW a través de SoupDB."""
 
 from __future__ import annotations
 

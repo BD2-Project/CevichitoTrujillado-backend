@@ -1,19 +1,4 @@
-"""Volumen de audio compartido con SoupDB (``/audio`` en ambos contenedores).
-
-Estructura::
-
-    /audio/fma/000/000002.mp3                     originales (solo lectura)
-    /audio/queries/<analysis_id>/candidate.mp3    candidatos (los escribe y borra el backend)
-
-SoupDB resuelve las referencias relativas a la raíz de su perfil, que es la
-misma ``/audio``. Este backend:
-
-- solo escribe y borra bajo ``queries/``, en carpetas con un ``uuid4`` generado
-  en servidor (el nombre del cliente nunca decide la ruta);
-- para servir un original, recibe la referencia ``audio_path`` leída de SoupDB
-  por ``song_id`` y la resuelve bajo la raíz sin salir de ella;
-- nunca expone rutas absolutas.
-"""
+"""Backend y SoupDB comparten el volumen de audio; el backend escribe candidatos."""
 
 import logging
 import re
@@ -79,12 +64,7 @@ class SharedAudioStore:
                 logger.warning("no se pudo borrar el staging %s: %s", target.parent.name, exc)
 
     def reference_file(self, audio_path: str) -> Path | None:
-        """Archivo de un original registrado, o ``None`` si no es servible.
-
-        ``audio_path`` viene de SoupDB (``songs.audio_path``), nunca del cliente;
-        aun así se valida: relativo, canónico, fuera de ``queries/``, sin enlaces
-        que salgan de la raíz, con extensión de audio y existente.
-        """
+        """Devuelve un original accesible dentro del volumen, fuera de queries/."""
         if not is_relative_audio_path(audio_path) or audio_path.split("/")[0] == QUERIES_DIR:
             return None
         if Path(audio_path).suffix.lower() not in AUDIO_EXTENSIONS:

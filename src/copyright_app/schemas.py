@@ -1,12 +1,3 @@
-"""Contrato HTTP del API de copyright.
-
-Cada ``CopyrightMatch`` es una run de evidencia temporal: un tramo continuo del
-audio analizado alineado con un tramo de una canción del catálogo. ``score`` es la
-**media de los scores de similitud** de los segmentos de esa run, no una
-probabilidad de plagio, copyright ni infracción. No existe un umbral de copyright
-validado experimentalmente, así que el contrato no expone ninguno.
-"""
-
 from typing import Literal, Self
 
 from pydantic import BaseModel, Field, model_validator

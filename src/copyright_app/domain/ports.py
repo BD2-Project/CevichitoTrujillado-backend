@@ -1,10 +1,3 @@
-"""Interfaces que el dominio necesita; las implementa ``infrastructure``.
-
-El dominio y los servicios dependen solo de estos protocolos: se prueban con
-dobles en memoria, sin SoupDB. Las implementaciones reales
-(``infrastructure.repositories``) hablan con SoupDB únicamente por TCP.
-"""
-
 from collections.abc import Sequence
 from contextlib import AbstractContextManager
 from pathlib import Path

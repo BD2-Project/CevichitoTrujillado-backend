@@ -1,21 +1,4 @@
-"""Servidor ejecutable: FastAPI + pool TCP hacia SoupDB.
-
-Arranque::
-
-    copyright-api                                   # o: python -m copyright_app.runtime
-    uvicorn copyright_app.runtime:app --host 0.0.0.0
-
-``lifespan``:
-
-- **startup**: crea el pool TCP, hace ``PING``, comprueba por SQL que existen
-  ``songs``/``audio_segments`` y el HNSW (``SysPluginIndexes``), crea las tablas
-  del historial si faltan, limpia candidatos huérfanos de ``/audio/queries`` e
-  instala los servicios. Si SoupDB no responde o falta el catálogo, no arranca.
-- **shutdown**: cierra el pool.
-
-El backend no entrena codebooks, no crea el HNSW (eso es el bootstrap) y no
-accede a los archivos de la base: todo pasa por TCP.
-"""
+"""El arranque comprueba que el catálogo y el HNSW ya existen en SoupDB."""
 
 import logging
 import sys

@@ -1,24 +1,3 @@
-"""Configuración del backend leída de variables de entorno (solo parsing, stdlib).
-
-=============================  ==============  ========================================
-Variable                       Por defecto     Qué es
-=============================  ==============  ========================================
-``SOUPDB_HOST``                ``soupdb``      Host del servidor SoupDB (TCP)
-``SOUPDB_PORT``                ``55432``       Puerto del protocolo SoupDB v2
-``SOUPDB_TIMEOUT_SECONDS``     ``60``          Timeout de socket por petición
-``SOUPDB_POOL_SIZE``           ``4``           Conexiones TCP simultáneas del backend
-``COPYRIGHT_AUDIO_ROOT``       ``/audio``      Volumen de audio compartido con SoupDB
-``COPYRIGHT_SEARCH_K``         ``5``           Vecinos HNSW por segmento (1–1000)
-``COPYRIGHT_MAX_UPLOAD_MB``    ``50``          Tamaño máximo de un upload (MiB)
-``COPYRIGHT_HOST``             ``127.0.0.1``   Interfaz HTTP del backend
-``COPYRIGHT_PORT``             ``8000``        Puerto HTTP del backend
-``COPYRIGHT_CORS_ORIGINS``     vacío           Orígenes del frontend, separados por comas
-=============================  ==============  ========================================
-
-Una variable ausente o vacía usa su valor por defecto; un valor presente pero
-inválido es un error, nunca un default silencioso.
-"""
-
 import os
 import re
 from collections.abc import Mapping

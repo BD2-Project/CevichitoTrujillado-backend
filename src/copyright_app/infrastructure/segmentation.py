@@ -1,14 +1,4 @@
-"""Bloques de 5 s de un audio, con la misma decodificación que el perfil de SoupDB.
-
-Solo calcula **cuántos** bloques hay y sus intervalos, para saber qué
-``#segment=NNNNNN`` consultar. La extracción MFCC y la vectorización las hace
-SoupDB (plugin ``soupdb-vector``) en su proceso.
-
-Regla compartida con el perfil ``audio_segment``: ``librosa.load`` a 22 050 Hz
-mono, bloques de ``round(5 * 22050)`` muestras sin solapamiento, y el último
-bloque solo si tiene al menos la mitad de muestras. ``librosa`` se importa al
-usarse, no al importar el módulo.
-"""
+"""La decodificación debe coincidir con la del perfil de audio de SoupDB."""
 
 from pathlib import Path
 
